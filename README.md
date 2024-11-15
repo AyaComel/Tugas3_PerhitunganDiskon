@@ -21,8 +21,8 @@ Perhitungan aritmatika, Penanganan eksepsi
 
 # Events
 • ActionListener untuk tombol Hitung
- 
- private void btnHitungActionPerformed(java.awt.event.ActionEvent evt) {                                          
+ ~~~
+ private void buttonHitungActionPerformed(java.awt.event.ActionEvent evt) {                                             
     try {
             // Cek apakah hargaAsliTextField kosong atau tidak valid
             if (textHargaAsli.getText().isEmpty() || textHargaAsli.getText().equals("Rp ")) {
@@ -74,10 +74,11 @@ Perhitungan aritmatika, Penanganan eksepsi
     private void sliderDiskonStateChanged(javax.swing.event.ChangeEvent evt) {                                          
     sliderDiskon.addChangeListener((ChangeEvent e) -> {
     lblDiskonSlider.setText(sliderDiskon.getValue() + "%"); 
-});
-            
+    });
+    }
+~~~          
 • ItemListener pada JComboBox untuk memilih persentase diskon
-
+~~~
 public AplikasiPerhitunganDiskon() {
         initComponents();
         comboDiskon.addItem("10%");
@@ -86,10 +87,11 @@ public AplikasiPerhitunganDiskon() {
         comboDiskon.addItem("40%");
         comboDiskon.addItem("50%");
     }
+~~~
 
 # Variasi
 • Tambahkan opsi untuk memasukkan kode kupon diskon tambahan
-
+~~~
 // Ambil kode kupon dari JTextField
             String kodeKupon = KuponText.getText().trim();
 
@@ -99,9 +101,9 @@ public AplikasiPerhitunganDiskon() {
             } else if (!kodeKupon.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Kode kupon tidak valid.", "Info", JOptionPane.INFORMATION_MESSAGE);
             }
-
+~~~
 • Tambahkan JSlider sebagai alternatif JComboBox untuk memilih persentase diskon
-
+~~~
 // Tentukan diskon persentase dari JSlider atau JComboBox
             int diskonPersen;
             if (sliderDiskon.getValue() > 0) {
@@ -110,9 +112,9 @@ public AplikasiPerhitunganDiskon() {
                 String diskonStr = (String) comboDiskon.getSelectedItem();
                 diskonPersen = Integer.parseInt(diskonStr.replace("%", ""));
             }
-
+~~~
 • Sediakan riwayat perhitungan diskon yang telah dilakukan.
-
+~~~
 // Tampilkan hasil pada JTextField dengan prefix "Rp "
             textPenghematan.setText("Rp " + String.format("%.2f", penghematan));
             textHargaAkhir.setText("Rp " + String.format("%.2f", hargaAkhir));
@@ -126,7 +128,7 @@ public AplikasiPerhitunganDiskon() {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Masukkan nilai yang valid.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-
+~~~
 ## Contoh Gambar Project Setelah di Run
 ![](https://github.com/AyaComel/Tugas3_PerhitunganDiskon/blob/main/Tugas3.png)
 
